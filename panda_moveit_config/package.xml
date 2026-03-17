@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>moveit_resources_panda_moveit_config</name>
+  <name>panda_moveit_config</name>
   <version>2.0.7</version>
   <description>
     <p>
@@ -21,7 +21,7 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <exec_depend>moveit_resources_panda_description</exec_depend>
+  <exec_depend>panda_description</exec_depend>
   <!-- disabled to remove circular dependencies
   <exec_depend>moveit_ros_move_group</exec_depend>
   <exec_depend>moveit_fake_controller_manager</exec_depend>
