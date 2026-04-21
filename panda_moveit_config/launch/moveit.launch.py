@@ -30,7 +30,7 @@ def generate_launch_description():
     )
 
     # -------------------------------
-    # MoveIt Configuration
+    # MoveIt Configuration  
     # -------------------------------
 
     moveit_config = (
