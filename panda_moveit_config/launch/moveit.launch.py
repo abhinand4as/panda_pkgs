@@ -24,7 +24,7 @@ def generate_launch_description():
         default_value=os.path.join(
             get_package_share_directory("panda_moveit_config"),
             "rviz",
-            "moveit2.rviz",
+            "moveit.rviz",
         ),
         description="Absolute path to RViz config file",
     )
@@ -80,7 +80,9 @@ def generate_launch_description():
         parameters=[
             moveit_config.robot_description,
             moveit_config.robot_description_semantic,
+            moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
+            moveit_config.joint_limits,
         ],
     )
 
