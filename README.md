@@ -1,17 +1,17 @@
 # panda_pkgs
 
-ROS2 (Humble) packages for the Franka Emika Panda robot — URDF description and MoveIt2 configuration.
+ROS2 (Jazzy) packages for the Franka Emika Panda robot — URDF description and MoveIt2 configuration.
 
 ## Packages
 
 | Package | Description |
 |---|---|
 | `panda_description` | URDF model, meshes (visual + collision), and robot description resources |
-| `panda_moveit_config` | MoveIt2 configuration — SRDF, kinematics, planners (OMPL, CHOMP, Pilz), and controllers |
+| `panda_moveit_config` | MoveIt2 configuration — SRDF, kinematics, planners (OMPL, CHOMP, Pilz, STOMP), and controllers |
 
 ## Prerequisites
 
-- ROS2 Humble
+- ROS2 Jazzy
 - MoveIt2
 - `moveit_configs_utils`
 - `ros2_control`
@@ -37,7 +37,7 @@ ros2 launch panda_moveit_config demo.launch.py
 | Argument | Default | Description |
 |---|---|---|
 | `ros2_control_hardware_type` | `mock_components` | Hardware interface type (`mock_components` or `isaac`) |
-| `rviz_tutorial` | `False` | Launch RViz in tutorial mode (empty config) |
+| `rviz_config` | `rviz/moveit.rviz` | Path to RViz config file |
 | `db` | `False` | Start MongoDB warehouse server |
 
 ### moveit.launch.py
@@ -51,7 +51,7 @@ ros2 launch panda_moveit_config moveit.launch.py
 | Argument | Default | Description |
 |---|---|---|
 | `ros2_control_hardware_type` | `mock_components` | Hardware interface type (`mock_components` or `isaac`) |
-| `rviz_config` | `rviz/moveit2.rviz` | Absolute path to a custom RViz config file |
+| `rviz_config` | `rviz/moveit.rviz` | Absolute path to a custom RViz config file |
 
 To supply a custom RViz config:
 
@@ -59,6 +59,16 @@ To supply a custom RViz config:
 ros2 launch panda_moveit_config moveit.launch.py \
   rviz_config:=/home/abhinand/custom.rviz
 ```
+
+## Kinematics
+
+Default solver is KDL. Alternative solver configs are provided:
+
+| Config file | Solver |
+| --- | --- |
+| `config/kinematics.yaml` | KDL (default) |
+| `config/bio_ik_kinematics.yaml` | BioIK |
+| `config/trac_ik_kinematics.yaml` | TRAC-IK |
 
 ## License
 
